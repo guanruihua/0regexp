@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "declaration": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "baseUrl": "./src",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  },
+  "include": ["./src/**/*"],
+  "exclude": [
+    "./src/test",
+    "**/*/__test__/*",
+    "**/*/__test__/",
+    "*.spec.ts",
+    "**/*/md.ts",
+    "**/*/*.md"
+  ]
+}
