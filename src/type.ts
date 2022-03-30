@@ -6,7 +6,6 @@ export type RTypeBase = {
 	type?: string
 	min?: number
 	max?: number
-	[K: string]: any
 }
 
 export type RTypeRegExp = RTypeBase | string
