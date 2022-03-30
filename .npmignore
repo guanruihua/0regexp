@@ -1,0 +1,7 @@
+test/
+__test__/
+push.bat
+*.md
+.gitignore
+jest.config.ts
+tsconfig.json

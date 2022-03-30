@@ -1,30 +1,63 @@
 import { rRegExp } from '../index'
 
-const func = rRegExp([
-	'serialKeyboard',
-	'letterBegin',
-	{ reg: /[A-Z]/ },
-	// / { type: 'length', max: 100},
-	'charCount',
-	'serialNumbers',
-	'serialNumbersDesc',
-	'serialLetters',
-	'serialLettersDesc',
-	'serialLettersIgnoreCase',
-	'serialLettersIgnoreCaseDesc',
-	{ reg: /[a-z]/ },
-	{ reg: /[0-9]/ },
-	{ reg: /[@|!|\(|\)|_]/ },
-])
-// seq 顺序
+const func = (str: string) => {
 
-// console.log(func('aA123123123123333@'))
-console.log(func('a@123A'))
-// console.log(func('aA231@123a45abC432'))
-// console.log(func('aA123123123123!'))
-// console.log(func('aA123123123123('))
-// console.log(func('aA123123123123)'))
-// console.log(func('aA123123123123_'))
-// console.log(func('aA123123123123'))
-// console.log(func('a123123123123@'))
-// console.log(func('_a123123123123'))
+	return str+' : '+rRegExp([
+		'serialKeyboard',
+		'typeCharCounts',
+		// 'length',
+		// 'letterBegin',
+		// 'letterEnd',
+		// 'charCount',
+		// 'serialNumber',
+		// 'numbersAsc',
+		// 'numbersDesc',
+		// 'serialOrderNumber',
+		// 'serialKeyboard',
+		// 'letterBegin',
+		// { reg: /[A-Z]/ },
+		// / { type: 'length', max: 100},
+		// 'charCount',
+		// 'serialNumbers',
+		// 'serialNumbersDesc',
+		// 'serialLetters',
+		// 'serialLettersDesc',
+		// 'serialLettersIgnoreCase',
+		// 'serialLettersIgnoreCaseDesc',
+		// { reg: /[a-z]/ },
+		// { reg: /[0-9]/ },
+		// { reg: /[@|!|\(|\)|_]/ },
+	])(str) + '\n'
+}
+// seq 顺序
+console.log(
+	// func('2341111'),
+	// func('2345'),
+	// func('2345'),
+	// func('1qaz'),
+	// func('432a1'),
+	func('1adgk_'),
+	func('11qaz'),
+	func('11qas'),
+	func('11qqaz'),
+	func('1543a2'),
+	func('1543a234a5'),
+	// func('4543a2'),
+	// func('23456'),
+	// func('234567'),
+	// func('1111'),
+	// func('5432'),
+	// func('aA111112345'),
+	// func('aA11111'),
+	// func('3333@'),
+	// func('aA123123123123333@'),
+	// func('a@123A'),
+	// func('aA231@123a45abC432'),
+	// func('aA123123123123!'),
+	// func('aA123123123123('),
+	// func('aA123123123123)'),
+	// func('aA123123123123_'),
+	// func('aA123123123123'),
+	// func('a123123123123@'),
+	// func('_a123123123123'),
+)
