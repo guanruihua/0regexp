@@ -23,6 +23,13 @@ export type RTypeBase = {
  max?: number
 }
 
+// 使用
+rRegExp([
+ // ...RTypeBase[]
+])(
+ // 待校验的字符串
+)
+
 ```
 
 ## 说明
