@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node-dev --respawn --transpile-only ./src/__test__/index.ts",
+    "test": "ts-node-dev --respawn --transpile-only ./src/__test__/index.ts",
     "pub": "npm publish"
   },
   "keywords": [],
