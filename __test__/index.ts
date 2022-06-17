@@ -1,4 +1,4 @@
-import { rRegExp } from '../index'
+import { rRegExp } from '../src/index'
 
 const func = (str: string) => {
 
