@@ -5,7 +5,6 @@
     "sourceMap": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "strictNullChecks": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,

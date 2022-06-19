@@ -1,4 +1,4 @@
-import { RTypeBase } from '../type'
+import { RegExpRaw } from '../type'
 
 /** 字母开头 */
 export function letterBegin(str: string) {
@@ -11,8 +11,8 @@ export function letterEnd(str: string) {
 }
 
 // 连续字母
-export function letters(str: string, rule: RTypeBase): boolean {
-	const { max = 4 }: RTypeBase = rule
+export function letters(str: string, rule: RegExpRaw): boolean {
+	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let len = str.length
 	while (len--) {
@@ -29,8 +29,8 @@ export function letters(str: string, rule: RTypeBase): boolean {
 }
 
 // 连续有序字母
-export function serialLetters(str: string, rule: RTypeBase): boolean {
-	const { max = 4 }: RTypeBase = rule
+export function serialLetters(str: string, rule: RegExpRaw): boolean {
+	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = -1000
 	let orderBy = 0;
@@ -70,8 +70,8 @@ export function serialLetters(str: string, rule: RTypeBase): boolean {
 }
 
 // 连续字母(升序)
-export function serialLettersAsc(str: string, rule: RTypeBase): boolean {
-	const { max = 4 }: RTypeBase = rule
+export function serialLettersAsc(str: string, rule: RegExpRaw): boolean {
+	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = 'z'
 	let len = str.length
@@ -98,8 +98,8 @@ export function serialLettersAsc(str: string, rule: RTypeBase): boolean {
 }
 
 // 连续字母(降序)
-export function serialLettersDesc(str: string, rule: RTypeBase): boolean {
-	const { max = 4 }: RTypeBase = rule
+export function serialLettersDesc(str: string, rule: RegExpRaw): boolean {
+	const { max = 4 }: RegExpRaw = rule
 
 	let maxlen = 0
 	let nowChar = 'z'
@@ -126,8 +126,8 @@ export function serialLettersDesc(str: string, rule: RTypeBase): boolean {
 	return true
 }
 // 连续字母(忽略大小写, 有序)
-export function serialLettersIgnoreCase(str: string, rule: RTypeBase): boolean {
-	const { max = 4 }: RTypeBase = rule
+export function serialLettersIgnoreCase(str: string, rule: RegExpRaw): boolean {
+	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = -1000
 	let orderBy = 0;
@@ -167,8 +167,8 @@ export function serialLettersIgnoreCase(str: string, rule: RTypeBase): boolean {
 	return true
 }
 // 连续字母(忽略大小写, 升序)
-export function serialLettersIgnoreCaseAsc(str: string, rule: RTypeBase): boolean {
-	const { max = 4 }: RTypeBase = rule
+export function serialLettersIgnoreCaseAsc(str: string, rule: RegExpRaw): boolean {
+	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = 'Z'
 	let len = str.length
@@ -194,8 +194,8 @@ export function serialLettersIgnoreCaseAsc(str: string, rule: RTypeBase): boolea
 	return true
 }
 // 连续字母(忽略大小写, 降序)
-export function serialLettersIgnoreCaseDesc(str: string, rule: RTypeBase): boolean {
-	const { max = 4 }: RTypeBase = rule
+export function serialLettersIgnoreCaseDesc(str: string, rule: RegExpRaw): boolean {
+	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = 'Z'
 	const list = str.split('') || []

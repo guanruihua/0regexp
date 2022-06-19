@@ -6,15 +6,16 @@
 npm install rh-regexp
 ```
 
+# RegExps([..args])(str)
+
+- `args`: 为校验规则数组
+- `str`: 待校验字符串
+- 规则写法: length 或 { reg: 'length'}:RTypeBase
+
 ```ts
-import { rRegExp } from  'rh-regexp'
+import { RegExps } from  'rh-regexp'
 
-// # rRegExp([..args])(str)
-// # args: 为校验规则数组
-// # str: 待校验字符串
-// # 规则写法: length 或 { reg: 'length'}:RTypeBase
-
-export type RTypeBase = {
+export type RegExpRaw = {
  required?: boolean
  reg?: RegExp
  regs?: RegExp[]
@@ -24,7 +25,7 @@ export type RTypeBase = {
 }
 
 // 使用
-rRegExp([
+RegExps([
  // ...RTypeBase[]
 ])(
  // 待校验的字符串
@@ -34,8 +35,7 @@ rRegExp([
 
 ## 说明
 
-> 只支持ts
-默认字符: `0-9a-zA-Z_`
+- 默认字符: `0-9a-zA-Z_`
 
 | key                           | 参数                                                              | 说明                       |
 | :---------------------------- | :---------------------------------------------------------------- | :------------------------- |
@@ -58,3 +58,7 @@ rRegExp([
 | `serialOrderNumber`           | [0,4)                                                             | 连续有序数字               |
 | `numbersAsc`                  | [0,4)                                                             | 连续升序数字               |
 | `numbersDesc`                 | [0,4)                                                             | 连续降序数字               |
+
+## 更新日志
+
+- 1.0.0 正式版 RegExps拓展RegExp的用法

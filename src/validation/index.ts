@@ -1,17 +1,17 @@
-import { RTypeBase } from '../type'
+import { RegExpRaw } from '../type'
 export * from './keyboard'
 export * from './number'
 export * from './letter'
 
 /** 长度 */
-export function _length_(str: string, rule: RTypeBase): boolean {
-	const { min = 4, max = 15 }: RTypeBase = rule
+export function _length_(str: string, rule: RegExpRaw): boolean {
+	const { min = 4, max = 15 }: RegExpRaw = rule
 	return str.length >= min && str.length < max;
 }
 
 /* 字符数量 */
-export function charCount(str: string, rule: RTypeBase) {
-	const { min = 4, max = 15, reg = /\*/ }: RTypeBase = rule
+export function charCount(str: string, rule: RegExpRaw) {
+	const { min = 4, max = 15, reg = /\*/ }: RegExpRaw = rule
 	let len = str.length
 	let countNum = 0
 	while (len--) {
@@ -27,7 +27,7 @@ export function charCount(str: string, rule: RTypeBase) {
 }
 
 /* 字符种类数量 */
-export function typeCharCounts(str: string, rule: RTypeBase) {
+export function typeCharCounts(str: string, rule: RegExpRaw) {
 	const { regs = [/[a-z]/,/[A-Z]/, /[1-9]/, /[_]/], min = 3, max = 15 } = rule
 	let len = regs.length
 	let countNum = 0

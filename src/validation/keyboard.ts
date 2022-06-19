@@ -1,7 +1,7 @@
-import { RTypeBase } from '../type';
+import { RegExpRaw } from '../type';
 // 键盘连续(忽略大小写)
-export function serialKeyboard(val: string, rule: RTypeBase): boolean {
-	const { max: maxlen = 4 }: RTypeBase = rule
+export function serialKeyboard(val: string, rule: RegExpRaw): boolean {
+	const { max: maxlen = 4 }: RegExpRaw = rule
 	let keyborardMap = [
 		['1!', '2@', '3#', '4$', '5%', '6^', '7&', '8*', '9(', '0)', '-_', '=+'],
 		['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{[', ']}', '\\|'],
