@@ -11,7 +11,7 @@ export function letterEnd(str: string) {
 }
 
 // 连续字母
-export function letters(str: string, rule: RegExpRaw): boolean {
+export function letter(str: string, rule: RegExpRaw): boolean {
 	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let len = str.length
@@ -29,7 +29,7 @@ export function letters(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续有序字母
-export function serialLetters(str: string, rule: RegExpRaw): boolean {
+export function seLetter(str: string, rule: RegExpRaw): boolean {
 	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = -1000
@@ -70,7 +70,7 @@ export function serialLetters(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续字母(升序)
-export function serialLettersAsc(str: string, rule: RegExpRaw): boolean {
+export function seLetterAsc(str: string, rule: RegExpRaw): boolean {
 	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = 'z'
@@ -98,7 +98,7 @@ export function serialLettersAsc(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续字母(降序)
-export function serialLettersDesc(str: string, rule: RegExpRaw): boolean {
+export function seLetterDesc(str: string, rule: RegExpRaw): boolean {
 	const { max = 4 }: RegExpRaw = rule
 
 	let maxlen = 0
@@ -125,8 +125,9 @@ export function serialLettersDesc(str: string, rule: RegExpRaw): boolean {
 	}
 	return true
 }
+
 // 连续字母(忽略大小写, 有序)
-export function serialLettersIgnoreCase(str: string, rule: RegExpRaw): boolean {
+export function seLetterIgCase(str: string, rule: RegExpRaw): boolean {
 	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = -1000
@@ -166,8 +167,9 @@ export function serialLettersIgnoreCase(str: string, rule: RegExpRaw): boolean {
 	}
 	return true
 }
+
 // 连续字母(忽略大小写, 升序)
-export function serialLettersIgnoreCaseAsc(str: string, rule: RegExpRaw): boolean {
+export function seLetterIgCaseAsc(str: string, rule: RegExpRaw): boolean {
 	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = 'Z'
@@ -193,8 +195,9 @@ export function serialLettersIgnoreCaseAsc(str: string, rule: RegExpRaw): boolea
 	}
 	return true
 }
+
 // 连续字母(忽略大小写, 降序)
-export function serialLettersIgnoreCaseDesc(str: string, rule: RegExpRaw): boolean {
+export function seLetterIgCaseDesc(str: string, rule: RegExpRaw): boolean {
 	const { max = 4 }: RegExpRaw = rule
 	let maxlen = 0
 	let nowChar = 'Z'

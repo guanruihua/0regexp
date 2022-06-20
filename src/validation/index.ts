@@ -19,16 +19,16 @@ export function charCount(str: string, rule: RegExpRaw) {
 			countNum++;
 			continue;
 		}
-		if (countNum >= max || countNum < min) {
+		if (countNum >= max) {
 			return false
 		}
 	}
-	return true
+	return countNum >= min
 }
 
 /* 字符种类数量 */
-export function typeCharCounts(str: string, rule: RegExpRaw) {
-	const { regs = [/[a-z]/,/[A-Z]/, /[1-9]/, /[_]/], min = 3, max = 15 } = rule
+export function typeCount(str: string, rule: RegExpRaw) {
+	const { regs = [/[a-z]/, /[A-Z]/, /[0-9]/, /[_]/], min = 3, max = 15 } = rule
 	let len = regs.length
 	let countNum = 0
 	while (len--) {
@@ -36,11 +36,11 @@ export function typeCharCounts(str: string, rule: RegExpRaw) {
 			countNum++;
 			continue;
 		}
-		if (countNum >= max || countNum < min) {
+		if (countNum >= max ) {
 			return false
 		}
 	}
-	return true
+	return countNum >=min
 }
 
 /* 电话号码 */

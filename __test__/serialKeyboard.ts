@@ -1,7 +1,7 @@
 import { RegExps } from '../src'
 import { testUnit } from './util'
 
-testUnit('serialKeyboard', RegExps(['serialKeyboard']),
+testUnit('seKeyboard', RegExps(['seKeyboard']),
 	{ params: '2341111', tobe: true },
 	{ params: '2345', tobe: false },
 	{ params: '1qaz', tobe: false },

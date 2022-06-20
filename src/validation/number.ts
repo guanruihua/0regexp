@@ -1,6 +1,15 @@
+import { RegExpRaw } from "../type";
+
+/* 数字 */
+export function number(str: string, reg: RegExpRaw): boolean {
+	const { min = 1, max = 16 } = reg
+	if (str.length < min || str.length >= max) return false
+	return /^[0-9]*$/.test(str)
+}
 
 /* 相邻数字数量 */
-export function serialNumber(str: string, reg: RegExp, min = 0, max = 4) {
+export function seNumber(str: string, reg: RegExpRaw) {
+	const { min = 0, max = 4 } = reg
 	let len = str.length
 	let countNum = 0
 	while (len--) {
@@ -17,7 +26,8 @@ export function serialNumber(str: string, reg: RegExp, min = 0, max = 4) {
 }
 
 /* 相邻有序数字 */
-export function serialOrderNumber(str: string, reg: RegExp, min = 0, max = 4) {
+export function seOrderNumber(str: string, reg: RegExpRaw) {
+	const { min = 0, max = 4 } = reg
 	let len = str.length
 	let countNum = 0
 	let nowChar = '-2'
@@ -64,7 +74,8 @@ export function serialOrderNumber(str: string, reg: RegExp, min = 0, max = 4) {
 }
 
 /* 连续数字(升序) */
-export function numbersAsc(str: string, reg: RegExp, min = -1, max = 4) {
+export function numbersAsc(str: string, reg: RegExpRaw) {
+	const { min = -1, max = 4 } = reg
 	let len = str.length
 	let countNum = 0
 	let nowChar = '-2'
@@ -90,7 +101,8 @@ export function numbersAsc(str: string, reg: RegExp, min = -1, max = 4) {
 }
 
 /* 连续数字(降序) */
-export function numbersDesc(str: string, reg: RegExp, min = -1, max = 4) {
+export function numbersDesc(str: string, reg: RegExpRaw) {
+	const { min = -1, max = 4 } = reg
 	let len = str.length
 	let countNum = 0
 	let nowChar = '-2'

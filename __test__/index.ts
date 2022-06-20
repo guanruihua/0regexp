@@ -1,3 +1,6 @@
 import './serialKeyboard'
 import './length'
-import './letterBegin'
+import './letter'
+import './number'
+import './charCount'
+import './phone'
