@@ -1,5 +1,21 @@
 import { RegExpRaw } from '../type'
 
+/**
+ * 小写字母
+ */
+export function lowLetter(str:string):boolean{
+	if (str.length === 0) return false
+	return /[a-z]/.test(str)
+}
+
+/**
+ * 大写字母
+ */
+export function uppLetter(str: string):boolean{
+	if (str.length === 0) return false
+	return /[A-Z]/.test(str)
+}
+
 /** 字母开头 */
 export function letterBegin(str: string) {
 	return new RegExp(/^[a-zA-Z]/).test(str)

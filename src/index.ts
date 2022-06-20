@@ -59,3 +59,24 @@ export function RegExps(regExpUnits: RegExpUnit[] | RegExpUnit, charCodeReg: Reg
 		return true
 	}
 }
+
+
+export function RegExpCount(regExpUnits: RegExpUnit[] | RegExpUnit, flag: boolean = false, charCodeReg: RegExp = /[0-9a-zA-Z_]/) {
+
+	return function (str: string): RegExpUnit[] {
+		let len = 1;
+		const result: RegExpUnit[] = []
+		if (Array.isArray(regExpUnits)) {
+			len = regExpUnits.length
+		} else {
+			regExpUnits = [regExpUnits]
+		}
+
+		while (len--) {
+			if (regExpMatch(str, charCodeReg, regExpUnits[len]) === flag) {
+				result.push(regExpUnits[len])
+			}
+		}
+		return result
+	}
+}

@@ -12,7 +12,6 @@ testUnit('typeCount', RegExps('typeCount'),
 	{ params: 'abcde', tobe: false },
 	{ params: 'aB1', tobe: true },
 	{ params: 'aB1_', tobe: true },
-	// expect(RegExps('length')).setParams('123').tobe(false)
 )
 
 
@@ -23,5 +22,4 @@ testUnit('charCount', RegExps('charCount'),
 	{ params: 'abc', tobe: false },
 	{ params: 'abcd', tobe: true },
 	{ params: 'abcde', tobe: true },
-	// expect(RegExps('length')).setParams('123').tobe(false)
 )

@@ -1,9 +1,8 @@
 import { RegExpRaw } from "../type";
 
 /* 数字 */
-export function number(str: string, reg: RegExpRaw): boolean {
-	const { min = 1, max = 16 } = reg
-	if (str.length < min || str.length >= max) return false
+export function number(str: string): boolean {
+	if (str.length === 0) return false
 	return /^[0-9]*$/.test(str)
 }
 

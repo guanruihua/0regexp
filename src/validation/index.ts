@@ -2,6 +2,7 @@ import { RegExpRaw } from '../type'
 export * from './keyboard'
 export * from './number'
 export * from './letter'
+export * from './special'
 
 /** 长度 */
 export function _length_(str: string, rule: RegExpRaw): boolean {
