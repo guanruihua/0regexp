@@ -2,7 +2,7 @@ import { RegExpRaw } from '../type';
 // 键盘连续(忽略大小写)
 export function seKeyboard(val: string, rule: RegExpRaw): boolean {
 	const { max: maxlen = 4 }: RegExpRaw = rule
-	let keyborardMap = [
+	const keyborardMap = [
 		['1!', '2@', '3#', '4$', '5%', '6^', '7&', '8*', '9(', '0)', '-_', '=+'],
 		['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{[', ']}', '\\|'],
 		['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';:', '\'"'],
@@ -10,15 +10,15 @@ export function seKeyboard(val: string, rule: RegExpRaw): boolean {
 	]
 	// 获取字符在键盘的坐标
 	function findIndex(_chart) {
-		let x = -2
-		let y = -2
+		const x = -2
+		const y = -2
 		let _y = 4
 		let _x = -2
 		while (_y--) {
 			_x = keyborardMap[_y].length
 			while (_x--) {
-				let item = keyborardMap[_y][_x].toLowerCase()
-				let itemLen = item.length || 0
+				const item = keyborardMap[_y][_x].toLowerCase()
+				const itemLen = item.length || 0
 				if (_chart == item[0] || (itemLen > 1 && _chart == item[1])) {
 					return [_x, _y]
 				}
@@ -57,10 +57,10 @@ export function seKeyboard(val: string, rule: RegExpRaw): boolean {
 
 	// 倒序遍历(下面处理都基于倒序为正方向)
 	while (len--) {
-		let item_x_y = findIndex(val[len])
-		let item_x = item_x_y[0]
-		let item_y = item_x_y[1]
-		let item_direction = calcIndex(now_x, now_y, item_x, item_y)
+		const item_x_y = findIndex(val[len])
+		const item_x = item_x_y[0]
+		const item_y = item_x_y[1]
+		const item_direction = calcIndex(now_x, now_y, item_x, item_y)
 
 		if (direction == 0 && !(now_x == item_x && now_y == item_y)) {
 			direction = item_direction

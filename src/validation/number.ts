@@ -34,7 +34,7 @@ export function seOrderNumber(str: string, reg: RegExpRaw) {
 
 	while (len--) {
 		const item: string = str[len]
-		const itemNum: number = Number(item)
+		const itemNum = Number(item)
 		if (isNaN(itemNum)) {
 			countNum = 0
 			nowChar = '-2'
@@ -80,7 +80,7 @@ export function numbersAsc(str: string, reg: RegExpRaw) {
 	let nowChar = '-2'
 	while (len--) {
 		const item: string = str[len]
-		const itemNum: number = Number(item)
+		const itemNum = Number(item)
 		if (isNaN(itemNum)) {
 			countNum = 0
 			nowChar = '-2'
@@ -107,7 +107,7 @@ export function numbersDesc(str: string, reg: RegExpRaw) {
 	let nowChar = '-2'
 	while (len--) {
 		const item: string = str[len]
-		const itemNum: number = Number(item)
+		const itemNum = Number(item)
 		if (isNaN(itemNum)) {
 			countNum = 0
 			nowChar = '-2'

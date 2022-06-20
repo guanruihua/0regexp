@@ -2,22 +2,29 @@
   "name": "rh-regexp",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "unpkg": "/lib/",
+  "jsdelivr": "/lib/",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "dev": "ts-node-dev --respawn --transpile-only ./__test__/index.ts",
+    "build": "npx rollup -c --extend rollup.config.ts",
     "test": "ts-node-dev --respawn --transpile-only ./__test__/index.ts",
+    "eslint": "eslint . --ext .ts",
+    "eslint:fix": "eslint . --ext .ts --fix",
     "pub": "npm publish"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["typescript", "javascript", "RegExp"],
+  "author": "ruihuag",
   "license": "ISC",
   "dependencies": {
     "typescript": "^4.6.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.5",
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "@rollup/plugin-commonjs": "^21.0.1",
     "@types/node": "^16.11.22",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.12.0",
@@ -40,6 +47,11 @@
     "rh-js-methods": "^1.0.2",
     "rh-test": "0.0.14",
     "rimraf": "^3.0.2",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-eslint": "^7.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.6.2"
   }

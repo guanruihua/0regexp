@@ -2,7 +2,7 @@ export * from './type'
 import * as validations from './validation'
 import { RegExpRaw, RegExpUnit } from './type'
 
-function regExpMatch(str: string, charCodeReg: RegExp, regExpUnit: RegExpUnit) {
+function regExpMatch(str: string, charCodeReg, regExpUnit: RegExpUnit) {
 	const item: RegExpUnit = regExpUnit
 
 	let itemRule: RegExpRaw = {
@@ -41,7 +41,7 @@ function regExpMatch(str: string, charCodeReg: RegExp, regExpUnit: RegExpUnit) {
 }
 
 
-export function RegExps(regExpUnits: RegExpUnit[] | RegExpUnit, charCodeReg: RegExp = /[0-9a-zA-Z_]/): (str: string) => boolean {
+export function RegExps(regExpUnits: RegExpUnit[] | RegExpUnit, charCodeReg = /[0-9a-zA-Z_]/): (str: string) => boolean {
 
 	return function (str: string): boolean {
 		let len = 1;
@@ -61,7 +61,7 @@ export function RegExps(regExpUnits: RegExpUnit[] | RegExpUnit, charCodeReg: Reg
 }
 
 
-export function RegExpCount(regExpUnits: RegExpUnit[] | RegExpUnit, flag: boolean = false, charCodeReg: RegExp = /[0-9a-zA-Z_]/) {
+export function RegExpCount(regExpUnits: RegExpUnit[] | RegExpUnit, flag = false, charCodeReg = /[0-9a-zA-Z_]/) {
 
 	return function (str: string): RegExpUnit[] {
 		let len = 1;

@@ -1,0 +1,12 @@
+import { RegExpRaw } from '../type';
+export declare function lowLetter(str: string): boolean;
+export declare function uppLetter(str: string): boolean;
+export declare function letterBegin(str: string): boolean;
+export declare function letterEnd(str: string): boolean;
+export declare function letter(str: string, rule: RegExpRaw): boolean;
+export declare function seLetter(str: string, rule: RegExpRaw): boolean;
+export declare function seLetterAsc(str: string, rule: RegExpRaw): boolean;
+export declare function seLetterDesc(str: string, rule: RegExpRaw): boolean;
+export declare function seLetterIgCase(str: string, rule: RegExpRaw): boolean;
+export declare function seLetterIgCaseAsc(str: string, rule: RegExpRaw): boolean;
+export declare function seLetterIgCaseDesc(str: string, rule: RegExpRaw): boolean;
