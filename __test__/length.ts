@@ -7,5 +7,5 @@ testUnit('length', RegExps('length'),
 	{ params: 'abc', tobe: false },
 	{ params: 'abcd', tobe: true },
 	{ params: 'abcde', tobe: true },
-	expect(RegExps('length')).setParams('123').tobe(false)
+	{ params: '123', tobe: false },
 )

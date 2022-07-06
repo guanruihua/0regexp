@@ -303,7 +303,7 @@ testUnit('seLetterIgCase', RegExps('seLetterIgCase'),
 	{ params: '_a123123123123', tobe: true },
 )
 
-testUnit('seLetterIgCaseAsc', RegExps('seLetterIgCaseAsc'),
+0 && testUnit('seLetterIgCaseAsc', RegExps('seLetterIgCaseAsc'),
 	{ params: 'aBCd', tobe: false },
 	{ params: 'edba', tobe: true },
 	{ params: 'a', tobe: true },
@@ -350,7 +350,7 @@ testUnit('seLetterIgCaseAsc', RegExps('seLetterIgCaseAsc'),
 	{ params: '_a123123123123', tobe: true },
 )
 
-testUnit('seLetterIgCaseDesc', RegExps('seLetterIgCaseDesc'),
+0 && testUnit('seLetterIgCaseDesc', RegExps('seLetterIgCaseDesc'),
 	{ params: 'dCbA', tobe: false },
 	{ params: 'aBCd', tobe: true },
 	{ params: 'edba', tobe: true },

@@ -5,7 +5,6 @@
     "sourceMap": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "alwaysStrict": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "baseUrl": "./src",
