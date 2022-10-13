@@ -2,7 +2,7 @@ const _Number = {
 	/**
 	 * @description: 正数, 负数, 小数
 	 */
-	Like: /^(\-\|\+)?\d+(\.\d+)?$/,
+	Like: /^(-\|\+)?\d+(\.\d+)?$/,
 	/**
 	 * @description: n位的数字
 	 * @param n number

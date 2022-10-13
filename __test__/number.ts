@@ -1,17 +1,18 @@
-import { RegExps } from '../src'
-import { testUnit } from './util'
+import { RegExps } from '.'
+import { test } from 'rh-test'
 
-testUnit('number', RegExps('number'),
-	{ params: '', tobe: false },
-	{ params: 'a', tobe: false },
-	{ params: '123', tobe: true },
-	{ params: '@123', tobe: false },
-	{ params: '123a', tobe: false },
-	{ params: '_123a', tobe: false },
+// test<any, any>('number', (a: any) => RegExps('num')(a),
+test<any, any>('number', RegExps('num'),
+	// { param: , tobe: false },
+	{ param: 'a', tobe: false },
+	{ param: '123', tobe: true },
+	{ param: '@123', tobe: false },
+	{ param: '123a', tobe: false },
+	{ param: '_123a', tobe: false },
 )
 
 
-testUnit('numbersAsc', RegExps(['numbersAsc']),
+test('numbersAsc', RegExps(['numbersAsc']),
 	{ params: '2341111', tobe: true },
 	{ params: '2345', tobe: false },
 	{ params: '1qaz', tobe: true },
@@ -47,7 +48,7 @@ testUnit('numbersAsc', RegExps(['numbersAsc']),
 	{ params: '_a123123123123', tobe: true }
 )
 
-testUnit('numbersDesc', RegExps(['numbersDesc']),
+test('numbersDesc', RegExps(['numbersDesc']),
 	{ params: '2343211111', tobe: false },
 	{ params: '2341111', tobe: true },
 	{ params: '2345', tobe: true },
@@ -84,7 +85,7 @@ testUnit('numbersDesc', RegExps(['numbersDesc']),
 	{ params: '_a123123123123', tobe: true }
 )
 
-testUnit('seOrderNumber', RegExps(['seOrderNumber']),
+test('seOrderNumber', RegExps(['seOrderNumber']),
 	{ params: '2341111', tobe: true },
 	{ params: '2345', tobe: false },
 	{ params: '1qaz', tobe: true },
@@ -120,7 +121,7 @@ testUnit('seOrderNumber', RegExps(['seOrderNumber']),
 	{ params: '_a123123123123', tobe: false }
 )
 
-testUnit('seNumber', RegExps(['seNumber']),
+test('seNumber', RegExps(['seNumber']),
 	{ params: '2341111', tobe: false },
 	{ params: '2345', tobe: false },
 	{ params: '1qaz', tobe: true },

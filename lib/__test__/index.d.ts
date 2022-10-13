@@ -1,9 +1,0 @@
-import './serialKeyboard';
-import './length';
-import './letter';
-import './letter2';
-import './number';
-import './charCount';
-import './phone';
-import './special';
-import './RegExpCount';

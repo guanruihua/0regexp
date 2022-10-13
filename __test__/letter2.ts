@@ -1,4 +1,4 @@
-import { RegExps } from '../src'
+import { RegExps } from '.'
 import { testUnit } from './util'
 
 testUnit('lowLetter', RegExps('lowLetter'),

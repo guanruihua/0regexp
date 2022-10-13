@@ -3,6 +3,8 @@ export * from './keyboard'
 export * from './number'
 export * from './letter'
 export * from './special'
+export * from './phone'
+export * from './empty'
 
 /** 长度 */
 export function _length_(str: string, rule: RegExpRaw): boolean {
@@ -44,7 +46,3 @@ export function typeCount(str: string, rule: RegExpRaw) {
 	return countNum >=min
 }
 
-/* 电话号码 */
-export function phone(str: string) {
-	return /^[1][3,4,5,6,7,8,9][0-9]{9}$/.test(str)
-}

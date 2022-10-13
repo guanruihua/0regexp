@@ -3,7 +3,8 @@ export * from './Regular'
 import * as validations from './validation'
 import { RegExpRaw, RegExpUnit } from './type'
 
-function regExpMatch(str: string, charCodeReg, regExpUnit: RegExpUnit) {
+function regExpMatch(str: string, charCodeReg: RegExp, regExpUnit: RegExpUnit) {
+
 	const item: RegExpUnit = regExpUnit
 
 	let itemRule: RegExpRaw = {
@@ -13,7 +14,7 @@ function regExpMatch(str: string, charCodeReg, regExpUnit: RegExpUnit) {
 	}
 
 	if (typeof item === "string") {
-		if (Object.keys(validations).includes(item) || item === 'length') {
+		if (validations[item] || item === 'length') {
 			itemRule.type = item
 		}
 	} else {
@@ -41,16 +42,22 @@ function regExpMatch(str: string, charCodeReg, regExpUnit: RegExpUnit) {
 	return true
 }
 
-
+/**
+ * 
+ * @param regExpUnits 规则索引
+ * @param charCodeReg 
+ * @returns 
+ */
 export function RegExps(regExpUnits: RegExpUnit[] | RegExpUnit, charCodeReg = /[0-9a-zA-Z_]/): (str: string) => boolean {
 
-	return function (str: string): boolean {
-		let len = 1;
-		if (Array.isArray(regExpUnits)) {
-			len = regExpUnits.length
-		} else {
+	if (!Array.isArray(regExpUnits)) {
+		return function (str: string): boolean {
 			return regExpMatch(str, charCodeReg, regExpUnits)
 		}
+	}
+
+	return function (str: string): boolean {
+		let len = regExpUnits.length;
 
 		while (len--) {
 			if (!regExpMatch(str, charCodeReg, regExpUnits[len])) {

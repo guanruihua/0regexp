@@ -1,3 +1,4 @@
+export * from '../src'
 import './serialKeyboard'
 import './length'
 import './letter'

@@ -1,4 +1,4 @@
-import { RegExpCount } from '../src'
+import { RegExpCount } from '.'
 import { testUnit } from './util'
 
 testUnit('RegExpCount', RegExpCount('length'),

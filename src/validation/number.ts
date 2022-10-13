@@ -1,8 +1,9 @@
 import { RegExpRaw } from "../type";
 
 /* 数字 */
-export function number(str: string): boolean {
+export function num(str: string): boolean {
 	if (str.length === 0) return false
+	// console.log( /^[0-9]*$/.test(str))
 	return /^[0-9]*$/.test(str)
 }
 

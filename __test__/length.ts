@@ -1,4 +1,4 @@
-import { RegExps } from '../src'
+import { RegExps } from '..'
 import { testUnit, expect } from './util'
 
 testUnit('length', RegExps('length'),
