@@ -1,4 +1,9 @@
-export const Dictionary: Record<string, RegExp> = {
+export type Dictionary = Record<string, RegExp>
+
+export const Dictionary = {
+	/**
+	 * @description 身份证
+	 */
 	identityCardCode: /^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/,
 	Email: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
 	// const emailReg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/

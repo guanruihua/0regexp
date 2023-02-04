@@ -1,5 +1,6 @@
 export * from './type'
 export * from './Regular'
+export * from './dictionary'
 import * as validations from './validation'
 import { RegExpRaw, RegExpUnit } from './type'
 
