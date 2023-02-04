@@ -1,9 +1,9 @@
-# rh-regexp
+# 0regexp
 
 ## 使用
 
 ```shell
-npm install rh-regexp
+npm install 0regexp
 ```
 
 ```ts
