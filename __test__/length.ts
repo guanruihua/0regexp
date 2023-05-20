@@ -1,11 +1,11 @@
 import { RegExps } from '..'
-import { testUnit, expect } from './util'
+import { testUnit} from './util'
 
 testUnit('length', RegExps('length'),
-	{ params: 'a', tobe: false },
-	{ params: 'ab', tobe: false },
-	{ params: 'abc', tobe: false },
-	{ params: 'abcd', tobe: true },
-	{ params: 'abcde', tobe: true },
-	{ params: '123', tobe: false },
+	{ param: 'a', tobe: false },
+	{ param: 'ab', tobe: false },
+	{ param: 'abc', tobe: false },
+	{ param: 'abcd', tobe: true },
+	{ param: 'abcde', tobe: true },
+	{ param: '123', tobe: false },
 )
