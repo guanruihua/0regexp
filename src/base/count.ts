@@ -10,6 +10,7 @@ function getLength(value?: unknown, defaultValue?: number) {
 /** 长度 */
 export function lengthRule(value: unknown, rule: Rule): boolean {
 	const { min, max, len }: Rule = rule
+	
 	const valueLen = getLength(value, 0)
 	const minLen = getLength(min)
 	const maxLen = getLength(max)

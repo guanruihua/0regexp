@@ -1,8 +1,11 @@
-import { RegExpRaw } from '../type';
-// 键盘连续(忽略大小写)
-export function seKeyboard(val: string, rule: RegExpRaw): boolean {
-	const { max: maxlen = 4 }: RegExpRaw = rule
-	const keyborardMap = [
+import { RegExpRaw } from '../type'
+
+/**
+ * @description 键盘连续(忽略大小写)
+ */
+export function SeriesKeyboard(val: string, rule: RegExpRaw): boolean {
+	const { max: maxLen = 4 }: RegExpRaw = rule
+	const keyPadMap = [
 		['1!', '2@', '3#', '4$', '5%', '6^', '7&', '8*', '9(', '0)', '-_', '=+'],
 		['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{[', ']}', '\\|'],
 		['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';:', '\'"'],
@@ -15,9 +18,9 @@ export function seKeyboard(val: string, rule: RegExpRaw): boolean {
 		let _y = 4
 		let _x = -2
 		while (_y--) {
-			_x = keyborardMap[_y].length
+			_x = keyPadMap[_y].length
 			while (_x--) {
-				const item = keyborardMap[_y][_x].toLowerCase()
+				const item = keyPadMap[_y][_x].toLowerCase()
 				const itemLen = item.length || 0
 				if (_chart == item[0] || (itemLen > 1 && _chart == item[1])) {
 					return [_x, _y]
@@ -51,7 +54,7 @@ export function seKeyboard(val: string, rule: RegExpRaw): boolean {
 	let now_y = -2
 	let direction = 0 // 0: 未确定 1:y降序 2: x升序, 3: y升序; 4:x降序
 	let len = val.length
-	if (len < maxlen) {
+	if (len < maxLen) {
 		return true
 	}
 
@@ -86,7 +89,7 @@ export function seKeyboard(val: string, rule: RegExpRaw): boolean {
 			now_y = item_y
 		}
 
-		if (total >= maxlen) {
+		if (total >= maxLen) {
 			return false
 		}
 	}

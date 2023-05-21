@@ -1,13 +1,7 @@
-import { RegExpRaw } from "../type";
-
-/* 数字 */
-export function num(str: string): boolean {
-	if (str.length === 0) return false
-	return /^[0-9]*$/.test(str)
-}
+import { RegExpRaw } from "../type"
 
 /* 相邻数字数量 */
-export function seNumber(str: string, reg: RegExpRaw) {
+export function SeriesNumber(str: string, reg: RegExpRaw) {
 	const { min = 0, max = 4 } = reg
 	let len = str.length
 	let countNum = 0
@@ -73,7 +67,7 @@ export function seOrderNumber(str: string, reg: RegExpRaw) {
 }
 
 /* 连续数字(升序) */
-export function numbersAsc(str: string, reg: RegExpRaw) {
+export function AscNumbers(str: string, reg: RegExpRaw) {
 	const { min = -1, max = 4 } = reg
 	let len = str.length
 	let countNum = 0
@@ -100,7 +94,7 @@ export function numbersAsc(str: string, reg: RegExpRaw) {
 }
 
 /* 连续数字(降序) */
-export function numbersDesc(str: string, reg: RegExpRaw) {
+export function DescNumbers(str: string, reg: RegExpRaw) {
 	const { min = -1, max = 4 } = reg
 	let len = str.length
 	let countNum = 0

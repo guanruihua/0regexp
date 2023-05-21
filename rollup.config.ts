@@ -30,8 +30,6 @@ const rollupConfig = {
       name: pkg.name
     }
   ],
-  // external: ['lodash'], // 指出应将哪些模块视为外部模块，如 Peer dependencies 中的依赖
-  // plugins 需要注意引用顺序
   plugins: [
     // 验证导入的文件
     eslint({

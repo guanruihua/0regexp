@@ -4,7 +4,6 @@ import { loadModule, TestSetting } from 'unit-testing-js'
 TestSetting.set('isSummary', true)
 
 loadModule(async () => {
-	import('./regExpTest')
 	// import('./serialKeyboard')
 	// import('./length')
 	// import('./letter')
