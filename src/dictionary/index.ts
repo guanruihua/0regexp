@@ -1,9 +1,9 @@
-import NumberReg from './NumberRegular'
-import WebRegular from './WebRegular'
-import ChinaRegular from './ChinaRegular'
-import CharRegular from './CharRegular'
-import ColorRegular from './ColorRegular'
-import TimeRegular from './TimeRegular'
+import NumberReg from './Number'
+import WebRegular from './Web'
+import ChinaRegular from './China'
+import CharRegular from './Char'
+import ColorRegular from './Color'
+import TimeRegular from './Time'
 
 export default {
 	...NumberReg,
