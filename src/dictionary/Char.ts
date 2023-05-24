@@ -1,5 +1,4 @@
 export default {
-
 	/**
 	 * @description 双字节字符(包含中文)
 	 */

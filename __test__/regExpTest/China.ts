@@ -1,5 +1,5 @@
 export default {
-	ChinaPostalCode: ['519000'],
+	ChinaPostalCode: ['515123'],
 	IdentityCard: [
 		'11010119900101127X',
 		'11010119900101127X',
@@ -14,5 +14,5 @@ export default {
 		'110101199001011595',
 	],
 	Chinese: ['小月月'],
-	LicensePlate: ['粤AF0236'],
+	ChineseLicensePlate: ['粤AF0236'],
 }

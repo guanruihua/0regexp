@@ -1,18 +1,22 @@
-import { Rule } from '../type'
-import { lengthRule, enumRule } from '../base'
+import { Regular } from '../dictionary'
+import { RuleErrorMonitor } from '../error'
+import { Rule, RuleName } from '../type'
+import * as Validation from '../validation'
+import { lengthRule, enumRule, } from '../validation'
 import { isArray, isEmpty, isObject, isRegExp, isString, isUndefined } from 'asura-eye'
 
-export async function RuleRegExp(rules: Rule[], value: unknown) {
+export async function RegExps(rules: (Rule | RuleName)[], value: unknown) {
+
 	const result = {
 		success: [],
 		error: [],
 		warnning: [],
 	}
 
-	const count = (status: boolean, rule: Rule) => {
-		const { warningOnly = false } = rule
+	const count = (status: boolean, rule: Rule | RuleName) => {
+		const { warningOnly = false } = isString(rule) ? {} : rule
+		if (status === false && warningOnly) return result.warnning.push(rule)
 		if (status) return result.success.push(rule)
-		if (warningOnly) return result.warnning.push(rule)
 		return result.error.push(rule)
 	}
 
@@ -20,23 +24,81 @@ export async function RuleRegExp(rules: Rule[], value: unknown) {
 
 		const ruleUnit = rules[i]
 
+		// 规则为string 的处理
+		if (isString(ruleUnit)) {
+			if (Validation[ruleUnit]) {
+				try {
+					if (Validation[ruleUnit](value, ruleUnit) === false) {
+						count(false, ruleUnit)
+						continue;
+					}
+				} catch (error) {
+					console.error(error)
+				}
+
+			}
+			const reg = Regular[ruleUnit]
+			if (isRegExp(reg) && isString(value)) {
+				count(reg.test(value), ruleUnit)
+			} else {
+				count(false, ruleUnit)
+			}
+			continue;
+		}
+
+
+
 		const {
-			type = 'string', transform,
+			name,
+			type, transform,
 			required = false, whitespace = false,
 			validator
 		} = ruleUnit
 
+		RuleErrorMonitor(ruleUnit)
+
 		const newValue = isUndefined(transform) ? value : transform(value)
 
-		let unitResult = false
+		let unitResult = true
 
-		if (
-			(required && isEmpty(newValue))
-			|| !lengthRule(newValue, ruleUnit)
-			|| !(validator && await validator(newValue, ruleUnit))
-		) {
+		if (!lengthRule(newValue, ruleUnit)) {
 			count(false, ruleUnit)
 			continue;
+		}
+
+		if (required && (isEmpty(newValue) || newValue === '')) {
+			count(false, ruleUnit)
+			continue;
+		}
+
+		if (validator) {
+			count(await validator(newValue, ruleUnit), ruleUnit)
+			continue;
+		}
+
+		if (isEmpty(type)) {
+			count(true, ruleUnit)
+			continue;
+		}
+
+
+		// name 的处理
+		if (type) {
+			if (Validation[name]) {
+				try {
+					if (Validation[name](value, ruleUnit) === false) {
+						count(false, ruleUnit)
+						continue;
+					}
+				} catch (error) {
+					console.error(error)
+				}
+
+			}
+			const reg = Regular[name]
+			if (isRegExp(reg) && isString(value)) {
+				count(reg.test(value), ruleUnit)
+			}
 		}
 
 		switch (type) {
@@ -70,7 +132,7 @@ export async function RuleRegExp(rules: Rule[], value: unknown) {
 				if (isObject(objectRule) && isObject(newValue)) {
 					let unitResultTmp = true
 					for (const key in objectRule) {
-						const tmp = await RuleRegExp(
+						const tmp = await RegExps(
 							[objectRule[key]],
 							newValue[key]
 						)
@@ -90,7 +152,7 @@ export async function RuleRegExp(rules: Rule[], value: unknown) {
 				if (isArray(arrayRule) && isArray(newValue)) {
 					let unitResultTmp = true
 					for (let j = 0; j < arrayRule.length; j++) {
-						const tmp = await RuleRegExp(
+						const tmp = await RegExps(
 							[arrayRule[j]],
 							j + 1 > arrayRule.length ? undefined : arrayRule[j]
 						)

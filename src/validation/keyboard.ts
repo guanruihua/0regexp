@@ -1,10 +1,13 @@
-import { RegExpRaw } from '../type'
+import { Rule } from '../type'
+import { getLength } from './util'
 
 /**
  * @description 键盘连续(忽略大小写)
  */
-export function SeriesKeyboard(val: string, rule: RegExpRaw): boolean {
-	const { max: maxLen = 4 }: RegExpRaw = rule
+export function SeriesKeyboard(val: string, rule: Rule): boolean {
+	const { max }: Rule = rule
+	const maxLen = getLength(max, 4)
+
 	const keyPadMap = [
 		['1!', '2@', '3#', '4$', '5%', '6^', '7&', '8*', '9(', '0)', '-_', '=+'],
 		['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '{[', ']}', '\\|'],

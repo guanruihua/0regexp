@@ -1,17 +1,17 @@
 import { isArray } from 'asura-eye'
 import { UnitTest } from 'unit-testing-js'
 import { cases } from './cases'
-import NumberReg from '../../src/dictionary'
+import { Regular } from '../../src/dictionary'
 
-for (const key in NumberReg) {
+for (const key in Regular) {
 	isArray(cases[key])
-		&& UnitTest(str => NumberReg[key].test(str), `${key}:true`)
+		&& UnitTest(str => Regular[key].test(str), `${key}:true`)
 			.addParamMap(cases[key])
 			.setDefaultValue(true)
 			.buildCases().run()
 
 	isArray(cases['No' + key])
-		&& UnitTest(str => NumberReg[key].test(str), `${key}:false`)
+		&& UnitTest(str => Regular[key].test(str), `${key}:false`)
 			.addParamMap(cases['No' + key])
 			.setDefaultValue(false)
 			.buildCases().run()

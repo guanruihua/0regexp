@@ -1,34 +1,10 @@
-import { RegExpRaw } from '../type'
-
-/**
- * 小写字母
- */
-export function lowLetter(str:string):boolean{
-	if (str.length === 0) return false
-	return /[a-z]/.test(str)
-}
-
-/**
- * 大写字母
- */
-export function uppLetter(str: string):boolean{
-	if (str.length === 0) return false
-	return /[A-Z]/.test(str)
-}
-
-/** 字母开头 */
-export function letterBegin(str: string) {
-	return new RegExp(/^[a-zA-Z]/).test(str)
-}
-
-/** 字母结尾 */
-export function letterEnd(str: string) {
-	return new RegExp(/[a-zA-Z]$/).test(str)
-}
+import { Rule } from '../type'
+import { getLength } from './util'
 
 // 连续字母
-export function letter(str: string, rule: RegExpRaw): boolean {
-	const { max = 4 }: RegExpRaw = rule
+export function SeriesLetter(str: string, rule: Rule): boolean {
+	const { max }: Rule = rule
+	const _max = getLength(max, 4)
 	let maxLen = 0
 	let len = str.length
 	while (len--) {
@@ -37,7 +13,7 @@ export function letter(str: string, rule: RegExpRaw): boolean {
 		} else {
 			maxLen = 0;
 		}
-		if (maxLen >= max) {
+		if (maxLen >= _max) {
 			return false
 		}
 	}
@@ -45,8 +21,9 @@ export function letter(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续有序字母
-export function seLetter(str: string, rule: RegExpRaw): boolean {
-	const { max = 4 }: RegExpRaw = rule
+export function SeriesOrderLetter(str: string, rule: Rule): boolean {
+	const { max }: Rule = rule
+	const _max = getLength(max, 4)
 	let maxLen = 0
 	let nowChar = -1000
 	let orderBy = 0;
@@ -78,7 +55,7 @@ export function seLetter(str: string, rule: RegExpRaw): boolean {
 		}
 
 		nowChar = item.charCodeAt(0)
-		if (maxLen >= max) {
+		if (maxLen >= _max) {
 			return false
 		}
 	}
@@ -86,8 +63,10 @@ export function seLetter(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续字母(升序)
-export function seLetterAsc(str: string, rule: RegExpRaw): boolean {
-	const { max = 4 }: RegExpRaw = rule
+export function SeriesLetterAsc(str: string, rule: Rule): boolean {
+	const { max = 4 }: Rule = rule
+	const _max = getLength(max, 4)
+
 	let maxLen = 0
 	let nowChar = 'z'
 	let len = str.length
@@ -106,7 +85,7 @@ export function seLetterAsc(str: string, rule: RegExpRaw): boolean {
 		}
 
 		nowChar = item
-		if (maxLen >= max) {
+		if (maxLen >= _max) {
 			return false
 		}
 	}
@@ -114,8 +93,9 @@ export function seLetterAsc(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续字母(降序)
-export function seLetterDesc(str: string, rule: RegExpRaw): boolean {
-	const { max = 4 }: RegExpRaw = rule
+export function SeriesLetterDesc(str: string, rule: Rule): boolean {
+	const { max = 4 }: Rule = rule
+	const _max = getLength(max, 4)
 
 	let maxLen = 0
 	let nowChar = 'z'
@@ -135,7 +115,7 @@ export function seLetterDesc(str: string, rule: RegExpRaw): boolean {
 		}
 
 		nowChar = item
-		if (maxLen >= max) {
+		if (maxLen >= _max) {
 			return false
 		}
 	}
@@ -143,8 +123,10 @@ export function seLetterDesc(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续字母(忽略大小写, 有序)
-export function seLetterIgCase(str: string, rule: RegExpRaw): boolean {
-	const { max = 4 }: RegExpRaw = rule
+export function SeriesLetterIgCase(str: string, rule: Rule): boolean {
+	const { max = 4 }: Rule = rule
+	const _max = getLength(max, 4)
+
 	let maxLen = 0
 	let nowChar = -1000
 	let orderBy = 0;
@@ -177,7 +159,7 @@ export function seLetterIgCase(str: string, rule: RegExpRaw): boolean {
 
 		nowChar = item.toUpperCase().charCodeAt(0)
 
-		if (maxLen >= max) {
+		if (maxLen >= _max) {
 			return false
 		}
 	}
@@ -185,8 +167,10 @@ export function seLetterIgCase(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续字母(忽略大小写, 升序)
-export function seLetterIgCaseAsc(str: string, rule: RegExpRaw): boolean {
-	const { max = 4 }: RegExpRaw = rule
+export function SeriesLetterIgCaseAsc(str: string, rule: Rule): boolean {
+	const { max = 4 }: Rule = rule
+	const _max = getLength(max, 4)
+
 	let maxLen = 0
 	let nowChar = 'Z'
 	let len = str.length
@@ -205,7 +189,7 @@ export function seLetterIgCaseAsc(str: string, rule: RegExpRaw): boolean {
 		}
 
 		nowChar = item
-		if (maxLen >= max) {
+		if (maxLen >= _max) {
 			return false
 		}
 	}
@@ -213,8 +197,10 @@ export function seLetterIgCaseAsc(str: string, rule: RegExpRaw): boolean {
 }
 
 // 连续字母(忽略大小写, 降序)
-export function seLetterIgCaseDesc(str: string, rule: RegExpRaw): boolean {
-	const { max = 4 }: RegExpRaw = rule
+export function LetterIgCaseDesc(str: string, rule: Rule): boolean {
+	const { max = 4 }: Rule = rule
+	const _max = getLength(max, 4)
+
 	let maxLen = 0
 	let nowChar = 'Z'
 	const list = str.split('') || []
@@ -234,7 +220,7 @@ export function seLetterIgCaseDesc(str: string, rule: RegExpRaw): boolean {
 		}
 
 		nowChar = item
-		if (maxLen >= max) {
+		if (maxLen >= _max) {
 			return false
 		}
 	}

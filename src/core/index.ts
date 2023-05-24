@@ -1,1 +1,1 @@
-export * from './RuleRegExp'
+export * from './RegExps'

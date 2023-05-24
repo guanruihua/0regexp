@@ -1,8 +1,11 @@
-import { RegExpRaw } from "../type"
+import { Rule } from "../type"
+import { getLength } from "./util"
 
 /* 相邻数字数量 */
-export function SeriesNumber(str: string, reg: RegExpRaw) {
-	const { min = 0, max = 4 } = reg
+export function SeriesNumber(str: string, reg: Rule) {
+	const min = getLength(reg.min, 0)
+	const max = getLength(reg.max, 4)
+
 	let len = str.length
 	let countNum = 0
 	while (len--) {
@@ -19,8 +22,10 @@ export function SeriesNumber(str: string, reg: RegExpRaw) {
 }
 
 /* 相邻有序数字 */
-export function seOrderNumber(str: string, reg: RegExpRaw) {
-	const { min = 0, max = 4 } = reg
+export function SeriesOrderNumber(str: string, reg: Rule) {
+	const min = getLength(reg.min, 0)
+	const max = getLength(reg.max, 4)
+
 	let len = str.length
 	let countNum = 0
 	let nowChar = '-2'
@@ -67,8 +72,11 @@ export function seOrderNumber(str: string, reg: RegExpRaw) {
 }
 
 /* 连续数字(升序) */
-export function AscNumbers(str: string, reg: RegExpRaw) {
-	const { min = -1, max = 4 } = reg
+export function NumberAsc(str: string, reg: Rule) {
+
+	const min = getLength(reg.min, 0)
+	const max = getLength(reg.max, 4)
+
 	let len = str.length
 	let countNum = 0
 	let nowChar = '-2'
@@ -94,8 +102,11 @@ export function AscNumbers(str: string, reg: RegExpRaw) {
 }
 
 /* 连续数字(降序) */
-export function DescNumbers(str: string, reg: RegExpRaw) {
-	const { min = -1, max = 4 } = reg
+export function NumberDesc(str: string, reg: Rule) {
+	
+	const min = getLength(reg.min, 0)
+	const max = getLength(reg.max, 4)
+	
 	let len = str.length
 	let countNum = 0
 	let nowChar = '-2'

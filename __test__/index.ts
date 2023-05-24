@@ -5,6 +5,7 @@ TestSetting.set('isSummary', true)
 
 loadModule(async () => {
 	import('./regExpTest')
+	import('./regexps')
 	// import('./serialKeyboard')
 	// import('./length')
 	// import('./letter')

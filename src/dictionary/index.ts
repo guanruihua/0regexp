@@ -4,14 +4,16 @@ import ChinaRegular from './China'
 import CharRegular from './Char'
 import ColorRegular from './Color'
 import TimeRegular from './Time'
+import LetterRegular from './Letter'
 
-export default {
+export const Regular = {
 	...NumberReg,
 	...WebRegular,
 	...ChinaRegular,
 	...CharRegular,
 	...ColorRegular,
 	...TimeRegular,
+	...LetterRegular,
 	/**
 	 * @description 空
 	 */
@@ -33,5 +35,4 @@ export default {
 	 * @description 手机号码
 	 */
 	phone: /^\d{11}|\d{13}$/,
-	phone1: /^[1][3,4,5,6,7,8,9][0-9]{9}$/,
 }

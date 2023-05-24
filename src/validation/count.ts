@@ -1,33 +1,21 @@
-import { isArray, isString, isUndefined } from 'asura-eye';
 import type { RegExpRaw, Rule } from '../type'
+import { getLength } from './util'
 
-function getLength(value?: unknown, defaultValue?: number) {
-	if (isString(value) || isArray(value)) return value.length
-	if (isUndefined(value)) return defaultValue
-	return value
-}
 
 /** 长度 */
 export function lengthRule(value: unknown, rule: Rule): boolean {
-	const { min, max, len }: Rule = rule
-	
-	const valueLen = getLength(value, 0)
+	const { min, max, len } = rule
+
+	const valueLen = getLength(value)
 	const minLen = getLength(min)
 	const maxLen = getLength(max)
 	const newLen = getLength(len)
 
-	if (minLen !== undefined && minLen > valueLen) return false
-	if (maxLen !== undefined && maxLen < valueLen) return false
-	if (newLen !== undefined && newLen < valueLen) return false
+	if (min !== undefined && minLen > valueLen) return false
+	if (max !== undefined && maxLen < valueLen) return false
+	if (len !== undefined && newLen !== valueLen) return false
 
 	return true
-}
-
-
-/** 长度 */
-export function _length_(str: string, rule: RegExpRaw): boolean {
-	const { min = 4, max = 15 }: RegExpRaw = rule
-	return str.length >= min && str.length < max;
 }
 
 /* 字符数量 */

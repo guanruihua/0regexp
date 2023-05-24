@@ -1,4 +1,3 @@
-
 /**
  * 规则 
  */
@@ -33,16 +32,40 @@ export type RegExpRaw = {
 	max?: number
 }
 
+export type RuleName =
+	'Integer' | 'Float' |
+	'LikeNumber' | 'ZeroStartNumber' |
+	'ThousandNumber' | 'DomainName' |
+	'IPV4' | 'IPV6' |
+	'URL' | 'Netmask' |
+	'ChinaPostalCode' | 'IdentityCard' |
+	'Chinese' | 'ChineseLicensePlate' |
+	'DoubleByteChar' | 'FullWidthSymbol' |
+	'HalfWidthSymbol' | 'HexadecimalColor' |
+	'Date' | 'Time' |
+	'Day' | 'Mouth' |
+	'LowLetter' | 'UppLetter' |
+	'BeginLetter' | 'EndLetter' |
+	'empty' | 'StartEndEmpty' |
+	'FileName' | 'email' |
+	'phone'
+	// 非正则实现
+	| 'SeriesKeyboard'
+
+	| 'SeriesLetter' | 'SeriesOrderLetter' | 'SeriesLetterAsc' | 'SeriesLetterDesc' |'SeriesLetterIgCase' | 'SeriesLetterIgCaseAsc' | 'SeriesLetterIgCaseDesc'
+
+	| 'SeriesNumber' | 'SeriesOrderNumber' | 'NumberAsc' | 'NumberDesc'
+
 /**
  * 规则
  */
 export type RegExpUnit = RegExpRaw | string
 
-export type Rule = {
+export interface Rule extends Record<string, any> {
 	/**
-	 * @description 当前规则 名称, 用于对自己的规则唯一标识
+	 * @description 规则名称
 	 */
-	name: string
+	name?: RuleName | string
 	/**
 	 * @description 当前规则信息描述
 	 */
